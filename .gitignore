@@ -1,0 +1,22 @@
+node_modules/
+dist/
+data/
+.wrangler/
+.claude/
+
+# Variáveis de ambiente e segredos locais
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+
+# Bancos SQLite e dumps SQL avulsos
+*.db
+*.db-shm
+*.db-wal
+*.sql
+
+# Logs e arquivos de sistema
+*.log
+.DS_Store

@@ -1,0 +1,26 @@
+# Cloudflare Workers — configuração de deploy (npm run deploy).
+name = "telegram-bills-bot"
+main = "src/worker.ts"
+compatibility_date = "2026-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[triggers]
+# 12h e 23h UTC = 9h e 20h no horário de Brasília (UTC-3 fixo, sem DST).
+crons = ["0 12,23 * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "bills-db"
+# Cole aqui o id gerado por `npx wrangler d1 create bills-db`:
+# Copie o database_id impresso por `npx wrangler d1 create bills-db`
+database_id = "85dcbd61-2054-479d-aabf-ad29b964ef40"
+
+[vars]
+TZ = "America/Sao_Paulo"
+
+# KV para os comprovantes (fotos/PDFs enviados no chat). Namespace criada via
+# `npx wrangler kv namespace create RECEIPTS` — grátis, sem cartão. Para
+# recriar em outra conta, cole o id impresso pelo comando:
+[[kv_namespaces]]
+binding = "RECEIPTS"
+id = "3910a6c434fe41f798004106ec8bde58"

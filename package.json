@@ -1,0 +1,32 @@
+{
+  "name": "telegram-bills-bot",
+  "version": "1.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "seed": "tsx scripts/seed.ts",
+    "deploy": "wrangler deploy",
+    "cf:dev": "wrangler dev",
+    "webhook:set": "tsx scripts/setWebhook.ts"
+  },
+  "dependencies": {
+    "@grammyjs/files": "^1.1.1",
+    "better-sqlite3": "^11.3.0",
+    "dotenv": "^16.4.5",
+    "grammy": "^1.21.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261022.1",
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/node": "^20.14.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4",
+    "wrangler": "^4.152.0"
+  }
+}
